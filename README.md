@@ -10,8 +10,11 @@ DinDuo é um aplicativo de gerenciamento financeiro que oferece recursos como co
 - **Framework Web**: Flask
 - **Banco de Dados**: PostgreSQL
 
-## Estrutura de Diretórios
+## Estrutura de Pastas e Arquivos
 
+A aplicação está organizada da seguinte maneira:
+
+```plaintext
 DinDuo/
 ├── app/
 │   ├── __init__.py
@@ -32,27 +35,26 @@ DinDuo/
 ├── config.py
 ├── run.py
 └── requirements.txt
+```
 
-DinDuo/
-├── app/
-│ ├── init.py
-│ ├── routes/
-│ │ ├── init.py
-│ │ ├── auth.py
-│ │ ├── transactions.py
-│ │ ├── users.py
-│ │ └── families.py
-│ ├── models/
-│ │ ├── init.py
-│ │ ├── base.py
-│ │ ├── user.py
-│ │ ├── transaction.py
-│ │ └── family.py
-│ └── utils/
-│ └── init.py
-├── config.py
-├── run.py
-└── requirements.txt
+### Descrição dos Arquivos
+
+- `__init__.py`: Arquivo de inicialização do pacote Python.
+- `routes/`: Contém todos os endpoints da API.
+  - `auth.py`: Manipula autenticação.
+  - `transactions.py`: Gerencia transações financeiras.
+  - `users.py`: Gerencia usuários.
+  - `families.py`: Gerencia famílias.
+- `models/`: Contém as definições dos modelos de dados.
+  - `base.py`: Define a base para outros modelos.
+  - `user.py`: Define o modelo do usuário.
+  - `transaction.py`: Define o modelo de transação.
+  - `family.py`: Define o modelo da família.
+- `utils/`: Contém várias funções utilitárias.
+- `config.py`: Contém as configurações do aplicativo.
+- `run.py`: Script para executar a aplicação.
+- `requirements.txt`: Lista de dependências do projeto.
+
 
 
 ## Descrição dos Arquivos
