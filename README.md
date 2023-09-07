@@ -33,6 +33,27 @@ DinDuo/
 ├── run.py
 └── requirements.txt
 
+DinDuo/
+├── app/
+│ ├── init.py
+│ ├── routes/
+│ │ ├── init.py
+│ │ ├── auth.py
+│ │ ├── transactions.py
+│ │ ├── users.py
+│ │ └── families.py
+│ ├── models/
+│ │ ├── init.py
+│ │ ├── base.py
+│ │ ├── user.py
+│ │ ├── transaction.py
+│ │ └── family.py
+│ └── utils/
+│ └── init.py
+├── config.py
+├── run.py
+└── requirements.txt
+
 
 ## Descrição dos Arquivos
 
