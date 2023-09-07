@@ -37,26 +37,6 @@ DinDuo/
 └── requirements.txt
 ```
 
-### Descrição dos Arquivos
-
-- `__init__.py`: Arquivo de inicialização do pacote Python.
-- `routes/`: Contém todos os endpoints da API.
-  - `auth.py`: Manipula autenticação.
-  - `transactions.py`: Gerencia transações financeiras.
-  - `users.py`: Gerencia usuários.
-  - `families.py`: Gerencia famílias.
-- `models/`: Contém as definições dos modelos de dados.
-  - `base.py`: Define a base para outros modelos.
-  - `user.py`: Define o modelo do usuário.
-  - `transaction.py`: Define o modelo de transação.
-  - `family.py`: Define o modelo da família.
-- `utils/`: Contém várias funções utilitárias.
-- `config.py`: Contém as configurações do aplicativo.
-- `run.py`: Script para executar a aplicação.
-- `requirements.txt`: Lista de dependências do projeto.
-
-
-
 ## Descrição dos Arquivos
 
 ### `app/`
