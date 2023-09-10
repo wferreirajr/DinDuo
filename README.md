@@ -144,4 +144,6 @@ Neste projeto, usamos várias tabelas para organizar nossa estrutura de dados. C
 
 Sinta-se à vontade para contribuir com o projeto. Abra uma `issue` ou faça um `pull request`.
 
+## Teste curl
+curl -X POST http://localhost:5000/create -H "Content-Type: application/json" -d '{"email": "wilson@wilson.com", "password": "password", "full_name": "Wilson F", "family_id": "1", "role": "admin", "tenant_id": "1"}'
 
