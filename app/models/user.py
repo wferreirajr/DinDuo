@@ -1,5 +1,5 @@
 from datetime import datetime
-from DinDuo.app import db
+from app import db
 
 class User(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
