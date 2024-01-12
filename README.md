@@ -10,66 +10,82 @@ DinDuo é um aplicativo de gerenciamento financeiro que oferece recursos como co
 - **Framework Web**: Flask
 - **Banco de Dados**: PostgreSQL
 
-## Estrutura de Pastas e Arquivos
-
-A aplicação está organizada da seguinte maneira:
+## Estrutura de Pastas e Arquivos Atualizada
 
 ```plaintext
 DinDuo/
 ├── app/
-│   ├── __init__.py
-│   ├── routes/
-│   │   ├── __init__.py
-│   │   ├── auth.py
-│   │   ├── transactions.py
-│   │   ├── users.py
-│   │   └── families.py
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── base.py
-│   │   ├── user.py
-│   │   ├── transaction.py
-│   │   └── family.py
-│   └── utils/
-│       └── __init__.py
+│   ├── - `__init__.py`
+│   ├── main/
+│   │   ├── - `__init__.py`
+│   │   ├── - `templates/`
+│   │   └── - `static/`
+│   ├── api/
+│   │   ├── - `__init__.py`
+│   │   ├── auth/
+│   │   │   ├── - `__init__.py`
+│   │   │   ├── models.py
+│   │   │   └── routes.py
+│   │   ├── transactions/
+│   │   │   ├── - `__init__.py`
+│   │   │   ├── models.py
+│   │   │   └── routes.py
+│   │   ├── users/
+│   │   │   ├── - `__init__.py`
+│   │   │   ├── models.py
+│   │   │   └── routes.py
+│   │   ├── families/
+│   │   │   ├── - `__init__.py`
+│   │   │   ├── models.py
+│   │   │   └── routes.py
+│   │   └── ... (outras features)
+│   └── common/
+│       ├── - `__init__.py`
+│       └── (utilitários compartilhados)
+├── tests/
+│   ├── - `__init__.py`
+│   ├── test_auth.py
+│   ├── test_transactions.py
+│   ├── test_users.py
+│   ├── test_families.py
+│   └── ... (outros testes)
+├── venv/
 ├── config.py
-├── run.py
-└── requirements.txt
+├── requirements.txt
+├── .env
+└── run.py
 ```
 
 ## Descrição dos Arquivos
 
 ### `app/`
 
-- `__init__.py`: Inicializa o aplicativo Flask e reúne outras partes do projeto.
-  
-### `app/routes/`
+- `__init__.py`: Inicializa o aplicativo Flask e configura as blueprints.
+app/main/
+- `__init__.py`: Inicializa a parte principal do aplicativo.
+- `templates/`: Contém os templates HTML para renderização no lado do cliente.
+- `static/`: Armazena arquivos estáticos como CSS, JavaScript e imagens.
 
-- `__init__.py`: Usado para importar e organizar todas as rotas criadas em outros arquivos dentro do diretório `routes`.
-- `auth.py`: Contém as rotas e lógica associadas à autenticação.
-- `transactions.py`: Contém as rotas e lógica para lidar com transações financeiras.
-- `users.py`: Contém as rotas e lógica para lidar com informações do usuário.
-- `families.py`: Contém as rotas e lógica para lidar com grupos de usuários ou famílias.
+### `app/api/`
 
-### `app/models/`
+Cada subdiretório dentro de api/ representa uma feature separada com seu próprio conjunto de modelos e rotas.
 
-- `__init__.py`: Importa todos os modelos de dados usados no aplicativo.
-- `base.py`: Contém classes e funções base que são comuns a muitos modelos.
-- `user.py`: Define o modelo de dados para usuários.
-- `transaction.py`: Define o modelo de dados para transações financeiras.
-- `family.py`: Define o modelo de dados para famílias ou grupos de usuários.
+Exemplo: `app/api/auth/`
+- `__init__.py`: Inicializa a blueprint específica da feature.
+- `models.py`: Define os modelos de dados relacionados à autenticação.
+- `routes.py`: Contém as rotas e lógicas associadas à autenticação.
 
-### `app/utils/`
+### `app/common/`
 
-- `__init__.py`: Pode ser usado para importar vários utilitários.
+- `__init__.py`: Pode ser usado para importar vários utilitários comuns.
 
-### Raiz
+### `Raiz`
 
-- `config.py`: Usado para configurar o aplicativo.
+- `config.py`: Configurações do aplicativo.
 - `run.py`: Script para iniciar o aplicativo Flask.
-- `requirements.txt`: Lista todas as bibliotecas Python que o projeto depende.
+- `requirements.txt`: Dependências do projeto.
 
-## Como Executar
+### `Como Executar`
 
 Para executar este projeto, siga as etapas abaixo:
 
@@ -91,59 +107,8 @@ Neste projeto, usamos várias tabelas para organizar nossa estrutura de dados. C
 
 ---
 
-### Tabela Tenants
-
-**Descrição:** Tabela que armazena informações sobre os inquilinos ou organizações.
-
-- `tenant_id`: Chave primária.
-- `tenant_name`: Nome do inquilino ou da organização.
-- `tenant_status`: Estado do inquilino (ativo ou inativo).
-
-**Índices**
-- `idx_tenant_name`: Índice no campo `tenant_name`.
-- `idx_tenant_status`: Índice no campo `tenant_status`.
-
----
-
-### Tabela Families
-
-**Descrição:** Tabela que armazena informações sobre as famílias ou grupos.
-
-- `family_id`: Chave primária.
-- `family_name`: Nome da família.
-- `budget`: Orçamento da família.
-- `tenant_id`: Chave estrangeira para Tenants.
-
-**Índices**
-- `idx_family_tenant_id`: Índice no campo `tenant_id`.
-
----
-
-### Tabela Users
-
-**Descrição:** Tabela que armazena informações sobre os usuários.
-
-- `user_id`: Chave primária.
-- `email`: Endereço de email do usuário.
-- `password`: Senha criptografada.
-- `full_name`: Nome completo do usuário.
-- `family_id`: Chave estrangeira para Families.
-- `role`: Função do usuário (ex: "chefe da família", "membro").
-
-**Índices**
-- `idx_user_email`: Índice no campo `email`.
-- `idx_user_family_id`: Índice no campo `family_id`.
-- `idx_user_tenant_id`: Índice no campo `tenant_id`.
-
----
-
-(... O restante das tabelas pode seguir o mesmo formato)
-
-
 ## Contribuição
-
-Sinta-se à vontade para contribuir com o projeto. Abra uma `issue` ou faça um `pull request`.
+(Sinta-se à vontade para contribuir com o projeto, seguindo as diretrizes para issues e pull requests.)
 
 ## Teste curl
-curl -X POST http://localhost:5000/create -H "Content-Type: application/json" -d '{"email": "wilson@wilson.com", "password": "password", "full_name": "Wilson F", "family_id": "1", "role": "admin", "tenant_id": "1"}'
-
+(Exemplo de comando curl para testar a API.)
