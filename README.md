@@ -61,7 +61,9 @@ DinDuo/
 ### `app/`
 
 - `__init__.py`: Inicializa o aplicativo Flask e configura as blueprints.
-app/main/
+
+### `app/main/`
+
 - `__init__.py`: Inicializa a parte principal do aplicativo.
 - `templates/`: Contém os templates HTML para renderização no lado do cliente.
 - `static/`: Armazena arquivos estáticos como CSS, JavaScript e imagens.
