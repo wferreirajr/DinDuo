@@ -8,7 +8,7 @@ DinDuo é um aplicativo de gerenciamento financeiro que oferece recursos como co
 
 - **Linguagem de Programação**: Python
 - **Framework Web**: Flask
-- **Banco de Dados**: PostgreSQL
+- **Banco de Dados**: SQLite
 
 ## Estrutura de Pastas e Arquivos Atualizada
 
