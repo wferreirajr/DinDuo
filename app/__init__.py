@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from .main import main as main_blueprint
+from .api.auth import auth as auth_blueprint
 
 db = SQLAlchemy()
 
@@ -10,10 +12,8 @@ def create_app():
     db.init_app(app)
 
     # Import and register the blueprint
-    from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    from .api.auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
     with app.app_context():
